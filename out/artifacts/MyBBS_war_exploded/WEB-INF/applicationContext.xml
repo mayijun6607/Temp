@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+        p:user="root" p:jdbcUrl="jdbc:mysql://localhost:3306/mybbs?useServerPrepStmts=true"
+        p:driverClass="com.mysql.jdbc.Driver" p:password="m65860966"
+        p:initialPoolSize="20" p:maxPoolSize="50" p:maxIdleTime="3"
+        p:acquireIncrement="5">
+  </bean>
+  <!-- 注册的BEAN-->
+    <bean id="user" class="main.domain.user.User" />
+    <bean id="registDAO" class="main.myRegist.regist.RegistDAO" scope="request"/>
+    <bean id="registService" class="main.myRegist.regist.RegistService" scope="request" p:registDAO-ref="registDAO"/>
+    <bean id="registServlet" class="main.myRegist.regist.RegistServlet" scope="request"
+          p:registService-ref="registService" p:comboPooledDataSource-ref="dataSource"
+          p:user-ref="user"/>
+  <!--验证码BEAN-->
+  <bean id="verifyCode" class="main.myRegist.verifycode.VerifyCode" scope="session"/>
+  <bean id="verifyCodeServlet" class="main.myRegist.regist.VerifyCodeServlet" p:verifyCode-ref="verifyCode" scope="session"/>
+  <!--登录的BEAN-->
+  <bean id="loginDAO" class="main.myLogin.login.LoginDAO" scope="request"/>
+  <bean id="loginService" class="main.myLogin.login.LoginService" scope="request" p:loginDAO-ref="loginDAO"/>
+  <bean id="loginServlet" class="main.myLogin.login.LoginServlet" scope="request"
+        p:user-ref="user" p:comboPooledDataSource-ref="dataSource" p:loginService-ref="loginService"/>
+  <!--发帖-->
+  <bean id="tiezi" class="main.domain.tiezi.Tiezi" scope="request"/>
+  <bean id="publishTieziDAO" class="main.Tiezi.publishTiezi.PublishTieziDAO" scope="request"/>
+  <bean id="publishTieziService" class="main.Tiezi.publishTiezi.PublishTieziService" scope="request" p:publishTieziDAO-ref="publishTieziDAO"/>
+  <bean id="publishTieziServlet" class="main.Tiezi.publishTiezi.PublishTieziServlet" scope="request" p:comboPooledDataSource-ref="dataSource"
+        p:publishTieziService-ref="publishTieziService" p:tiezi-ref="tiezi"/>
+  <!--综合讨论区显示帖子-->
+  <bean id="page" class="main.domain.page.Page"/>
+  <bean id="generalTieziDAO" class="main.Tiezi.generalTiezi.GeneralTieziDAO"/>
+  <bean id="generalTieziService" class="main.Tiezi.generalTiezi.GeneralTieziService" p:generalTieziDAO-ref="generalTieziDAO"/>
+  <bean id="generalTieziServlet" class="main.Tiezi.generalTiezi.GeneralTieziServlet"
+        p:comboPooledDataSource-ref="dataSource" p:generalTieziService-ref="generalTieziService" p:page-ref="page"/>
+  <!--综合讨论区帖子内容-->
+  <bean id="replyPage" class="main.domain.page.ReplyPage"/>
+  <bean id="generalKanTieDAO" class="main.Tiezi.generalKanTie.GeneralKanTieDAO"/>
+  <bean id="generalKanTieService" class="main.Tiezi.generalKanTie.GeneralKanTieService" p:generalKanTieDAO-ref="generalKanTieDAO"/>
+  <bean id="generalKanTieServlet" class="main.Tiezi.generalKanTie.GeneralKanTieServlet" p:comboPooledDataSource-ref="dataSource"
+        p:generalKanTieService-ref="generalKanTieService" p:replyPage-ref="replyPage"/>
+  <!--综合区回帖-->
+  <bean id="replyTiezi" class="main.domain.tiezi.ReplyTiezi"/>
+  <bean id="tieziReplyDAO" class="main.Tiezi.tieziReply.TieziReplyDAO"/>
+  <bean id="tieziReplyService" class="main.Tiezi.tieziReply.TieziReplyService" p:tieziReplyDAO-ref="tieziReplyDAO"/>
+  <bean id="tieziReplyServlet" class="main.Tiezi.tieziReply.TieziReplyServlet" p:comboPooledDataSource-ref="dataSource"
+        p:tieziReplyService-ref="tieziReplyService" p:replyTiezi-ref="replyTiezi" />
+  <!--修改密码-->
+  <bean id="setPasswordDAO" class="main.userConfig.setPassword.SetPasswordDAO" />
+  <bean id="setPasswordService" class="main.userConfig.setPassword.SetPasswordService"
+        p:setPasswordDAO-ref="setPasswordDAO" />
+  <bean id="setPasswordServlet" class="main.userConfig.setPassword.SetPasswordServlet" p:comboPooledDataSource-ref="dataSource"
+        p:setPasswordService-ref="setPasswordService" p:user-ref="user" />
+  <!--查看主题贴-->
+  <bean id="userTieziDAO" class="main.userConfig.userTiezi.UserTieziDAO"/>
+  <bean id="userTieziService" class="main.userConfig.userTiezi.UserTieziService" p:userTieziDAO-ref="userTieziDAO"/>
+  <bean id="userTieziServlet" class="main.userConfig.userTiezi.UserTieziServlet" p:comboPooledDataSource-ref="dataSource"
+         p:userTieziService-ref="userTieziService" p:page-ref="page"/>
+  <!--删主题贴-->
+  <bean id="deleteTieziDAO" class="main.Tiezi.deleteTiezi.DeleteTieziDAO"/>
+  <bean id="deleteTieziService" class="main.Tiezi.deleteTiezi.DeleteTieziService" p:deleteTieziDAO-ref="deleteTieziDAO"/>
+  <bean id="deleteTieziServlet" class="main.Tiezi.deleteTiezi.DeleteTieziServlet" p:comboPooledDataSource-ref="dataSource"
+        p:deleteTieziService-ref="deleteTieziService"/>
+  <!--删除回复-->
+  <bean id="deleteReplyDAO" class="main.Tiezi.deleteReply.DeleteReplyDAO"/>
+  <bean id="deleteReplyService" class="main.Tiezi.deleteReply.DeleteReplyService" p:deleteReplyDAO-ref="deleteReplyDAO"/>
+  <bean id="deleteReplyServlet" class="main.Tiezi.deleteReply.DeleteReplyServlet" p:comboPooledDataSource-ref="dataSource"
+        p:deleteReplyService-ref="deleteReplyService"/>
+</beans>
