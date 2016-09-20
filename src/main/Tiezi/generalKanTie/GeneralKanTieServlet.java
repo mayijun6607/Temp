@@ -86,7 +86,9 @@ public class GeneralKanTieServlet extends HttpServlet{
                 String[] replyContent=generalKanTieService.getReplyContent(reply,replyPage);
                 String[] replyTime=generalKanTieService.getReplyTime(reply,replyPage);
                 int[] floorId=generalKanTieService.getFloorId(reply,replyPage);
+                int[] authId=generalKanTieService.getAuthId(reply,replyPage);
 
+                request.setAttribute("authId",authId);
                 request.setAttribute("replyUsername",replyUsername);
                 request.setAttribute("replyContent",replyContent);
                 request.setAttribute("replyTime",replyTime);

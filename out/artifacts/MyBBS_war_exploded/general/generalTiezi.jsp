@@ -11,6 +11,14 @@
 <html>
 <head>
     <%
+        //获得用户权限等级
+        int userAuth=0;
+        if(session.getAttribute("username")==null){
+            userAuth=0;
+        }
+        else {
+            userAuth = (Integer) session.getAttribute("userAuth");
+        }
         //一楼
         int tieziId=(Integer) request.getAttribute("tieziId");
         /*request.setAttribute("tieziId",tieziId);*/
@@ -19,12 +27,14 @@
         String tieziContent="";
         String tieziTime="";
         String[] tiezi={"","","",""};
+        int authIdTop=0;
         tiezi=(String[]) request.getAttribute("tiezi");
         username=tiezi[0];
         tieziTitle=tiezi[1];
         tieziContent=tiezi[2];
         String tempTime=tiezi[3];
         tieziTime=tempTime.substring(0,16);
+        authIdTop=Integer.parseInt(tiezi[4]);
 
     %>
     <%
@@ -34,6 +44,7 @@
         String[] replyUsername=new String[10];
         String[] replyContent=new String[10];
         String[] replyTime=new String[10];
+        int[] authId=new int[10];
         for(int p=0;p<(Integer)request.getAttribute("pageSize");p++){
             replyUsername[p]="";
             replyContent[p]="";
@@ -43,6 +54,7 @@
         replyContent=(String[])request.getAttribute("replyContent");
         replyTime=(String[])request.getAttribute("replyTime");
         floorId=(int[])request.getAttribute("floorId");
+        authId=(int[])request.getAttribute("authId");
         //String[] temp={"","",""};
         /*int i=0;
         for (Map.Entry<Integer, String[]> entry : replyMap.entrySet()) {
@@ -140,14 +152,30 @@
                     if((Integer)request.getAttribute("currentPage")==1){
                 %>
                 <tr>
-                    <td align="left" ><%=username%></td>
+                    <td align="left" ><%=username%>&nbsp;<%
+                        if(authIdTop==4){
+                    %>
+                        <font color="#ea3e4e" size="2">&gt;站长&lt;</font>
+                        <%
+                        }
+                        else if(authIdTop==3){
+                        %>
+                        <font color="#ea3e4e" size="2">&gt;管理员&lt;</font>
+                        <%
+                        }
+                        else if(authIdTop==2){
+                        %>
+                        <font color="#ea3e4e" size="2">&gt;斑竹&lt;</font>
+                        <%
+                            }
+                        %></td>
                     <td><%=tieziContent%></td>
                 </tr>
                 <tr >
                     <td align="left" style="border-bottom: 1px solid black"><%=tieziTime%></td>
                     <td align="right" style="border-bottom: 1px solid black;">1楼&nbsp;&nbsp;
                         <%
-                            if(username.equals((String)session.getAttribute("username"))){
+                            if(username.equals((String)session.getAttribute("username"))||userAuth>1){
                                 if(((String)session.getAttribute("username")).length()<7){
                         %>
                         <form id="deleteId" action="/DeleteTieziServlet" method="post">
@@ -168,14 +196,30 @@
                             //replyDeleteTime=replyTime[u];
                 %>
                     <tr>
-                        <td align="left"><%=replyUsername[u]%></td>
+                        <td align="left"><%=replyUsername[u]%>&nbsp;<%
+                            if(authId[u]==4){
+                        %>
+                            <font color="#ea3e4e" size="2">&gt;站长&lt;</font>
+                            <%
+                            }
+                            else if(authId[u]==3){
+                            %>
+                            <font color="#ea3e4e" size="2">&gt;管理员&lt;</font>
+                            <%
+                            }
+                            else if(authId[u]==2){
+                            %>
+                            <font color="#ea3e4e" size="2">&gt;斑竹&lt;</font>
+                            <%
+                                }
+                            %></td>
                         <td><%=replyContent[u]%></td>
                     </tr>
                     <tr >
                         <td align="left" style="border-bottom: 1px solid black"><%=replyTime[u].substring(0,16)%></td>
                         <td align="right" style="border-bottom: 1px solid black;"><%=floorId[u]+1%>楼&nbsp;&nbsp;
                             <%
-                                if(replyUsername[u].equals((String)session.getAttribute("username"))||username.equals((String)session.getAttribute("username"))){
+                                if(replyUsername[u].equals((String)session.getAttribute("username"))||username.equals((String)session.getAttribute("username"))||userAuth>1){
                                     if(((String)session.getAttribute("username")).length()<7){
                             %>
                             <a href="${pageContext.request.contextPath}/DeleteReplyServlet?tempTime=<%=tempTime%>&replyTime=<%=replyTime[u]%>">删除回复</a>

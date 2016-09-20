@@ -1,15 +1,17 @@
 package main.Tiezi.deleteTiezi;
 
+import dao.Authority;
 import sun.reflect.annotation.ExceptionProxy;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
  * Created by Mayijun on 2016/9/19.
  */
-public class DeleteTieziDAO {
+public class DeleteTieziDAO{
     //删记录
     private String deleteSql="delete from general_tiezi where tiezi_id=?";
 
@@ -47,4 +49,5 @@ public class DeleteTieziDAO {
         }
 
     }
+
 }

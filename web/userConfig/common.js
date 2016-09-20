@@ -7,3 +7,6 @@ function setPassword1(){
 function checkTiezi1(){
     window.location.href="/UserTieziServlet";
 }
+function setAuth1(){
+    window.location.href="/userConfig/setAuth.jsp";
+}

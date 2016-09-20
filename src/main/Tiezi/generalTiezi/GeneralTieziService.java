@@ -104,4 +104,20 @@ public class GeneralTieziService {
         }
         return tieziTime;
     }
+    //得到权限
+    public int[] getAuthId(List<Tiezi> tiezi,Page page){
+        int[] authId=new int[page.getPageSize()];
+        int i=0;
+        for(Tiezi tieziTemp:tiezi){
+            if(i<=page.getPageSize()) {
+                authId[i]=tieziTemp.getAuthId();
+                //System.out.println(authId[i]);
+                i++;
+            }
+            else{
+                return authId;
+            }
+        }
+        return authId;
+    }
 }

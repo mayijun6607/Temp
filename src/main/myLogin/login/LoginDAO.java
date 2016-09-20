@@ -1,5 +1,6 @@
 package main.myLogin.login;
 
+import dao.Authority;
 import main.domain.user.User;
 
 import java.sql.*;
@@ -7,7 +8,7 @@ import java.sql.*;
 /**
  * Created by Mayijun on 2016/9/8.
  */
-public class LoginDAO {
+public class LoginDAO implements Authority{
     private String checkSql="select password from user where username=?";
 
     //返回值 1是成功，-1是用户名错误，-2是密码错误
@@ -37,4 +38,32 @@ public class LoginDAO {
 
         }
     }
+    //获得权限等级 0游客，1会员，2斑竹，3管理员，4站长
+    private String AuthSql="select * from user where username=?";
+    @Override
+    public int getAuthority(Connection connection, String username) throws SQLException {
+        ResultSet resultSet=null;
+        try(PreparedStatement preparedStatement=connection.prepareStatement(AuthSql)){
+            preparedStatement.setString(1,username);
+            resultSet=preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                return resultSet.getInt("authid");
+            }
+            else{
+                return -1;
+            }
+        }
+        catch (Exception e){
+           /* e.printStackTrace();
+            return 0;*/
+            throw new RuntimeException("登录查询权限DAO出错！");
+        }
+        finally {
+            if(resultSet!=null){
+                resultSet.close();
+            }
+        }
+
+    }
+
 }

@@ -18,6 +18,7 @@ public class LoginOutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session=request.getSession();
         session.setAttribute("username",null);
+        session.setAttribute("userAuth",0);
         response.sendRedirect("/index.jsp");
         //System.out.println((String)session.getAttribute("username"));
     }

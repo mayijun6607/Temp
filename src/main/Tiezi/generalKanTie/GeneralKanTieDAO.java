@@ -19,6 +19,31 @@ import java.util.Map;
  * Created by Mayijun on 2016/9/12.
  */
 public class GeneralKanTieDAO {
+    //查询每个用户的权限等级
+    private String authSql="select * from user where username=?";
+
+    public int getAuthId(Connection connection,String username) throws SQLException {
+        ResultSet resultSet=null;
+        try(PreparedStatement preparedStatement=connection.prepareStatement(authSql)){
+            preparedStatement.setString(1,username);
+            resultSet=preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                return resultSet.getInt("authid");
+            }
+            else{
+                return 0;
+            }
+        }
+        catch (Exception e){
+            throw new RuntimeException("查看回复查询用户权限DAO失败!");
+        }
+        finally {
+            if(resultSet!=null){
+                resultSet.close();
+            }
+        }
+    }
+    //查看1楼
     private String findSql="select * from general_tiezi where tiezi_id=?";
 
     public String[] findTiezi(Connection connection,int tieziId) throws SQLException {
@@ -26,12 +51,20 @@ public class GeneralKanTieDAO {
         try(PreparedStatement preparedStatement=connection.prepareStatement(findSql)){
             preparedStatement.setInt(1,tieziId);
             resultSet=preparedStatement.executeQuery();
-            String[] tiezi=new String[4];
+            String[] tiezi=new String[5];
+            int authId=0;
             if(resultSet.next()){
+                if(resultSet.getString("username").length()<=6) {
+                    authId = getAuthId(connection, resultSet.getString("username"));
+                }
+                else{
+                    authId=0;
+                }
                 tiezi[0]=resultSet.getString("username");
                 tiezi[1]=resultSet.getString("tiezi_title");
                 tiezi[2]=resultSet.getString("tiezi_content");
                 tiezi[3]=resultSet.getString("tiezi_time");
+                tiezi[4]=authId+"";
             }
             return tiezi;
         }
@@ -78,7 +111,6 @@ public class GeneralKanTieDAO {
             }
         }
     }*/
-
     //查找回复总数
     public int getTotalRecord(Connection connection,String tieziTime) throws SQLException {
         char[] timeArray=tieziTime.toCharArray();
@@ -136,9 +168,16 @@ public class GeneralKanTieDAO {
         List<ReplyTiezi> reply=new ArrayList<>();
         try(PreparedStatement preparedStatement=connection.prepareStatement(replySql)){
             resultSet=preparedStatement.executeQuery();
+            int authId=0;
             while(resultSet.next()){
+                if(resultSet.getString("reply_username").length()<=6) {
+                    authId = getAuthId(connection, resultSet.getString("reply_username"));
+                }
+                else{
+                    authId=0;
+                }
                 reply.add(new ReplyTiezi(resultSet.getString("reply_username"),resultSet.getInt("tiezi_id"),
-                        resultSet.getString("tiezi_reply"),resultSet.getString("reply_time"),resultSet.getInt("tiezi_floor")));
+                        resultSet.getString("tiezi_reply"),resultSet.getString("reply_time"),resultSet.getInt("tiezi_floor"),authId));
             }
             return reply;
         }

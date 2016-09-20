@@ -1,3 +1,4 @@
+<%@ page import="sun.rmi.server.InactiveGroupException" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -14,6 +15,8 @@
 <body>
     <%--登录后和登录前不同的TITLE.JSP--%>
     <%
+        //获取权限
+        int userAuth=(Integer)session.getAttribute("userAuth");
         if(session.getAttribute("username")!=null){%>
     <jsp:include page="${pageContext.request.contextPath}/title/titleSuccess.jsp"/>
     <%
@@ -38,8 +41,18 @@
         <%--左边的选项栏--%>
         <div style="border:2px solid black;position: absolute;left:10%;top:15%;width:15%;height:75%;">
             <hr/><input type="button" value="修改密码" style="width:100%;height: 15%"
-                        onclick="setPassword1()"/><br/><hr/>
-            <input type="button" value="自己的主题帖" style="width:100%;height: 15%" onclick="checkTiezi1()"/><br/><hr/>
+                        onclick="setPassword1()"/>
+            <br/><hr/>
+            <input type="button" value="自己的主题帖" style="width:100%;height: 15%" onclick="checkTiezi1()"/>
+            <br/><hr/>
+            <span <%
+                if(userAuth<2){
+                    out.print("hidden");
+                }
+            %> >
+            <input type="button" value="设置权限" style="width:100%;height: 15%" onclick="setAuth1()"/>
+            <br/><hr/>
+            </span>
         </div>
 
     </div>

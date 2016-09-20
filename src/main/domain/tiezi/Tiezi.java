@@ -10,6 +10,10 @@ public class Tiezi {
     private String tieziDatetime;
     private int areaId;
     private int tieziId;
+    private int authId;
+
+
+
 
     public Tiezi(){
 
@@ -29,6 +33,22 @@ public class Tiezi {
         this.tieziDatetime=tieziDatetime;
         this.tieziId=tieziId;
         this.areaId=areaId;
+    }
+    public Tiezi(int authId,String username,String tieziTitle,String tieziContent,String tieziDatetime,int tieziId){
+        this.username=username;
+        this.tieziTitle=tieziTitle;
+        this.tieziContent=tieziContent;
+        this.tieziDatetime=tieziDatetime;
+        this.tieziId=tieziId;
+        this.authId=authId;
+    }
+    public void setAuthId(int authId) {
+        this.authId = authId;
+    }
+
+
+    public int getAuthId() {
+        return authId;
     }
 
     public int getTieziId() {

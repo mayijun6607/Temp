@@ -18,4 +18,5 @@ public class DeleteTieziService {
         deleteTieziDAO.deleteTable(connection,tempTime);
         deleteTieziDAO.deleteTiezi(connection,deleteId);
     }
+
 }

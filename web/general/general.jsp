@@ -62,11 +62,20 @@
 
     <%--Servlet传过来的Map的处理  放数组里，再分发下去--%>
     <%
+        //获得用户权限等级
+        int userAuth=0;
+        if(session.getAttribute("username")==null){
+            userAuth=0;
+        }
+        else {
+            userAuth = (Integer) session.getAttribute("userAuth");
+        }
         int[] tieziId=new int[10];
         String[] username=new String[10];
         String[] title=new String[10];
         String[] content=new String[10];
         String[] time=new String[10];
+        int[] authId=new int[10];
         //没剪切过的时间
        // String[] realTime=new String[10];
         for(int p=0;p<(Integer)request.getAttribute("pageSize");p++){
@@ -82,6 +91,7 @@
         content=(String[])request.getAttribute("tieziContent");
         time=(String[])request.getAttribute("tieziTime");
         int pageSize=(Integer)request.getAttribute("pageSize");
+        authId=(int[])request.getAttribute("authId");
 
         /*String[] temp={"","","",""};*/
       /*  Map<Integer, String[]> idMap = (Map<Integer,String[]>)request.getAttribute("idMap");
@@ -118,10 +128,27 @@
                 <td align="center"><a href="${pageContext.request.contextPath}/GeneralKanTieServlet?tieziId=<%=tieziId[k]%>&tieziTime=<%=time[k]%>"
                                      style="font-size: x-large"><%out.print(title[k]);%></a> </td>
                 <%--<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>--%>
-                <td align="right"><%out.print(username[k]); %></td>
+                <td align="right"><%
+                    if(authId[k]==4){
+                %>
+                    <font color="#ea3e4e" size="2">&gt;站长&lt;</font>&nbsp;
+                <%
+                    }
+                    else if(authId[k]==3){
+                %>
+                    <font color="#ea3e4e" size="2">&gt;管理员&lt;</font>&nbsp;
+                <%
+                    }
+                    else if(authId[k]==2){
+                %>
+                    <font color="#ea3e4e" size="2">&gt;斑竹&lt;</font>&nbsp;
+                <%
+                    }
+                    out.print(username[k]);
+                %></td>
                 <td><%=time[k].substring(0,16)%></td>
                 <%
-                    if(username[k].equals((String)session.getAttribute("username"))){
+                    if(username[k].equals((String)session.getAttribute("username"))||userAuth>1){
                         if(((String)session.getAttribute("username")).length()<7){
                 %>
                 <td>

@@ -9,6 +9,7 @@ public class ReplyTiezi {
     private String tieziReply;
     private String replyTime;
     private int floorId;
+    private int authId;
 
     public int getFloorId() {
         return floorId;
@@ -21,13 +22,23 @@ public class ReplyTiezi {
     public ReplyTiezi(){
 
     }
-    public ReplyTiezi(String replyUsername,int tieziId,String tieziReply,String replyTime,int floorId){
+    public ReplyTiezi(String replyUsername,int tieziId,String tieziReply,String replyTime,int floorId,int authId){
         this.replyUsername=replyUsername;
         this.tieziId=tieziId;
         this.tieziReply=tieziReply;
         this.replyTime=replyTime;
         this.floorId=floorId;
+        this.authId=authId;
     }
+
+    public int getAuthId() {
+        return authId;
+    }
+
+    public void setAuthId(int authId) {
+        this.authId = authId;
+    }
+
     public String getReplyUsername() {
         return replyUsername;
     }

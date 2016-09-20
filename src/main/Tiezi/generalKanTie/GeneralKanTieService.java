@@ -92,4 +92,20 @@ public class GeneralKanTieService {
         }
         return floorId;
     }
+    //得到权限
+    public int[] getAuthId(List<ReplyTiezi> tiezi,ReplyPage page){
+        int[] authId=new int[page.getPageSize()];
+        int i=0;
+        for(ReplyTiezi tieziTemp:tiezi){
+            if(i<=page.getPageSize()) {
+                authId[i]=tieziTemp.getAuthId();
+                //System.out.println(authId[i]);
+                i++;
+            }
+            else{
+                return authId;
+            }
+        }
+        return authId;
+    }
 }

@@ -34,6 +34,8 @@
         <url-pattern>/userConfig/setPassword.jsp</url-pattern>
         <url-pattern>/userConfig/userTiezi.jsp</url-pattern>
         <servlet-name>UserTieziServlet</servlet-name>
+        <url-pattern>/userConfig/setAuth.jsp</url-pattern>
+        <servlet-name>SetAuthServlet</servlet-name>
     </filter-mapping>
     <filter-mapping>
         <filter-name>GeneralTieziFilter</filter-name>
@@ -76,6 +78,14 @@
     <servlet-mapping>
         <servlet-name>DeleteReplyServlet</servlet-name>
         <url-pattern>/DeleteReplyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SetAuthServlet</servlet-name>
+        <servlet-class>main.userConfig.setAuth.SetAuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SetAuthServlet</servlet-name>
+        <url-pattern>/SetAuthServlet</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>TieziReplyServlet</servlet-name>

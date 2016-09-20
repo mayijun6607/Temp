@@ -19,19 +19,43 @@
         </span>
 
         <%--改成您好，XXX 以及退出登录--%>
-        <span style="position: absolute;left: 75%;top: 6%;">
+        <span style="position: absolute;left: 70%;top: 6%;">
             <font size="5" color="black">您好,
             <%
                 String username=(String)session.getAttribute("username");
-                if(username.length()<=6){
+                //拿到用户权限等级
+                int userAuth=0;
+                if(username.length()<=6) {
+                    userAuth = (Integer) session.getAttribute("userAuth");
+                }
+                    if(userAuth<1){
             %>
-                <a href="${pageContext.request.contextPath}/userConfig/userConfig.jsp"><%=username%></a>
+                <%="游客"+username%>
+            <%        }
+                    else if(userAuth==4){
+            %>
+                站长<a href="${pageContext.request.contextPath}/userConfig/userConfig.jsp"><%=username%></a>
             <%
-                }
-                else{
-                out.print(username);
-                }
+                    }
+                    else if(userAuth==3){
             %>
+                管理员<a href="${pageContext.request.contextPath}/userConfig/userConfig.jsp"><%=username%></a>
+            <%
+                    }
+                    else if(userAuth==2){
+            %>
+                斑竹<a href="${pageContext.request.contextPath}/userConfig/userConfig.jsp"><%=username%></a>
+            <%
+                    }
+                    else if(userAuth==1) {
+            %>
+                会员<a href="${pageContext.request.contextPath}/userConfig/userConfig.jsp"><%=username%></a>
+            <%
+                     }
+            %>
+
+
+
             </font> &nbsp;&nbsp;
             <a href="<c:url value="/LoginOutServlet"/> "><font size="3" color="blue">退出登录</font> </a>
         </span>
@@ -51,7 +75,7 @@
         <span style="position:absolute;right:5%;" onmousemove="userconfig1()" onmouseout="userconfig2()" onclick="setConfig()">
             <input type="image" id="userconfig"
                     <%
-                        if(((String)session.getAttribute("username")).length()>6){
+                        if(userAuth<0){
                     %>
                    hidden
                     <%

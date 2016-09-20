@@ -8,6 +8,7 @@ public class User {
     private String password;
     private String passwordOk;
     private String identify;
+    private int authId;
 
     public User(){
 
@@ -17,6 +18,19 @@ public class User {
         this.username=username;
         this.password=password;
     }
+    public User(String username,int authId){
+        this.username=username;
+        this.authId=authId;
+    }
+
+    public int getAuthId() {
+        return authId;
+    }
+
+    public void setAuthId(int authId) {
+        this.authId = authId;
+    }
+
     public String getUsername() {
         return username;
     }

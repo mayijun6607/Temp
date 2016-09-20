@@ -14,6 +14,8 @@
 <body>
     <%--登录后和登录前不同的TITLE.JSP--%>
     <%
+        //用户权限
+        int userAuth=(Integer)session.getAttribute("userAuth");
         if(session.getAttribute("username")!=null){%>
     <jsp:include page="${pageContext.request.contextPath}/title/titleSuccess.jsp"/>
     <%
@@ -41,6 +43,14 @@
                         onclick="setPassword1()"/><br/><hr/>
             <input type="button" value="自己的主题帖" style="width:100%;height: 15%"
                    disabled onclick="checkTiezi1()"/><br/><hr/>
+              <span <%
+                  if(userAuth<2){
+                      out.print("hidden");
+                  }
+              %> >
+            <input type="button" value="设置权限" style="width:100%;height: 15%" onclick="setAuth1()"/>
+            <br/><hr/>
+            </span>
         </div>
         <%--右边的显示框：查看主题帖--%>
         <div id="setPassword" style="border:2px solid black;position: absolute;left:30%;top:15%;width:50%;height:80%;">

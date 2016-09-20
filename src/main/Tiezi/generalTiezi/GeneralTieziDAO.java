@@ -42,6 +42,30 @@ public class GeneralTieziDAO {
             }
         }
     }*/
+    //查询每个用户的权限等级
+    private String authSql="select * from user where username=?";
+
+    public int getAuthId(Connection connection,String username) throws SQLException {
+        ResultSet resultSet=null;
+        try(PreparedStatement preparedStatement=connection.prepareStatement(authSql)){
+            preparedStatement.setString(1,username);
+            resultSet=preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                return resultSet.getInt("authid");
+            }
+            else{
+                return 0;
+            }
+        }
+        catch (Exception e){
+            throw new RuntimeException("查看帖子查询用户权限DAO失败!");
+        }
+        finally {
+            if(resultSet!=null){
+                resultSet.close();
+            }
+        }
+    }
 
     //查询总记录数
     private String pageSql="select count(*) from general_tiezi";
@@ -83,18 +107,26 @@ public class GeneralTieziDAO {
         }
         String tieziSql = "select * from general_tiezi limit " +limitLeft + "," + limitRight;
         ResultSet resultSet=null;
+        int authId=0;
         List<Tiezi> tiezi=new ArrayList<>();
         try(PreparedStatement preparedStatement=connection.prepareStatement(tieziSql)){
             resultSet=preparedStatement.executeQuery();
             while(resultSet.next()){
-                tiezi.add(new Tiezi(resultSet.getString("username"),resultSet.getString("tiezi_title"),
+                if(resultSet.getString("username").length()<=6) {
+                    authId = getAuthId(connection, resultSet.getString("username"));
+                }
+                else{
+                    authId=0;
+                }
+                //System.out.println(authId);
+                tiezi.add(new Tiezi(authId,resultSet.getString("username"),resultSet.getString("tiezi_title"),
                         resultSet.getString("tiezi_content"),resultSet.getString("tiezi_time"),resultSet.getInt("tiezi_id")));
             }
             return tiezi;
 
         }
         catch (Exception e){
-            /*e.printStackTrace();
+          /*  e.printStackTrace();
             return null;*/
             throw new RuntimeException("获取每页帖子内容DAO出错！");
         }

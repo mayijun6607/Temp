@@ -19,4 +19,8 @@ public class LoginService {
     public int login(Connection connection, User user) throws SQLException {
         return loginDAO.check(connection,user);
     }
+    //获得用户权限等级
+    public int getAuth(Connection connection,String username) throws SQLException {
+        return loginDAO.getAuthority(connection,username);
+    }
 }
