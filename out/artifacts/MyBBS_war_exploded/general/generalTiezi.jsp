@@ -176,7 +176,7 @@
                     <td align="right" style="border-bottom: 1px solid black;">1楼&nbsp;&nbsp;
                         <%
                             if(username.equals((String)session.getAttribute("username"))||userAuth>1){
-                                if(((String)session.getAttribute("username")).length()<7){
+                                if(((String)session.getAttribute("username")).length()<7&&userAuth>=authIdTop){
                         %>
                         <form id="deleteId" action="/DeleteTieziServlet" method="post">
                             <input type="text" hidden name="tempTime" value="<%=tempTime%>"/>
@@ -220,7 +220,7 @@
                         <td align="right" style="border-bottom: 1px solid black;"><%=floorId[u]+1%>楼&nbsp;&nbsp;
                             <%
                                 if(replyUsername[u].equals((String)session.getAttribute("username"))||username.equals((String)session.getAttribute("username"))||userAuth>1){
-                                    if(((String)session.getAttribute("username")).length()<7){
+                                    if(((String)session.getAttribute("username")).length()<7&&userAuth>=authId[u]){
                             %>
                             <a href="${pageContext.request.contextPath}/DeleteReplyServlet?tempTime=<%=tempTime%>&replyTime=<%=replyTime[u]%>">删除回复</a>
                            <%-- <form id="deleteReplyId" action="/DeleteReplyServlet" method="post">

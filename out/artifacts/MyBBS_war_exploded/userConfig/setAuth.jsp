@@ -115,10 +115,28 @@
                         <tr>
                             <th>用户名</th>
                             <th>权限等级</th>
+                            <th>设置权限</th>
                         </tr>
                         <tr style="font-size: large">
                             <td align="center"><%=(String)request.getAttribute("EuserName")%></td>
                             <td align="center"><%=Eauth%></td>
+                            <td>
+                                <form id="EformId" action="/ModifyAuthServlet" method="post">
+                                    <select name="Eauth">
+                                        <%if(!"会员".equals(Eauth)&&userAuth>1){%>
+                                        <option value="1">会员</option>
+                                        <%}%>
+                                        <%if(!"斑竹".equals(Eauth)&&userAuth>2){%>
+                                        <option value="2">斑竹</option>
+                                        <%}%>
+                                        <%if(!"管理员".equals(Eauth)&&userAuth>3){%>
+                                        <option value="3">管理员</option>
+                                        <%}%>
+                                    </select>
+                                    <input type="text" hidden name="Eusername" value="<%=(String)request.getAttribute("EuserName")%>" />
+                                    <input type="button" value="提交" onclick="EForm1()"/>
+                                </form>
+                            </td>
                         </tr>
                     </table>
                     <%
@@ -160,16 +178,35 @@
                         <tr>
                             <th>用户名</th>
                             <th>权限等级</th>
+                            <th>设置权限</th>
                         </tr>
                         <%
                             for(int j=0;j<10;j++){
+                                if(!"".equals(BuserName[j])){
                         %>
                         <tr style="font-size: large">
                             <td><%=BuserName[j]%></td>
                             <td><%=BuserAuth[j]%></td>
+                            <td>
+                                <a href="${pageContext.request.contextPath}/SetAuthServlet?queryName=<%=BuserName[j]%>&isBlur=<%="no"%>">进入修改</a>
+                              <%--  <form id="BformId" action="/ModifyAuthServlet?Eusername=<%=BuserName[j]%>" method="get">
+                                    <select name="Eauth">
+                                        <%if(!"会员".equals(BuserAuth[j])&&userAuth>1){%>
+                                        <option value="1">会员</option>
+                                        <%}%>
+                                        <%if(!"斑竹".equals(BuserAuth[j])&&userAuth>2){%>
+                                        <option value="2">斑竹</option>
+                                        <%}%>
+                                        <%if(!"管理员".equals(BuserAuth[j])&&userAuth>3){%>
+                                        <option value="3">管理员</option>
+                                        <%}%>
+                                    </select>
+                                    <input type="button" value="提交" onclick="BForm1()"/>
+                                </form>--%>
+                            </td>
                         </tr>
                         <%
-                            }
+                            }}
                         %>
                     </table>
                     <%}%>
@@ -178,4 +215,23 @@
     </div>
 </body>
 <script type="text/javascript" src="${pageContext.request.contextPath}/userConfig/common.js"></script>
+<script type="text/javascript">
+    //精确查找修改权限
+    var Eform=document.getElementById("EformId");
+    function EForm1(){
+        var Econfirm=confirm("确认修改？");
+        if(Econfirm==true){
+            Eform.submit();
+        }
+    }
+    //模糊查找修改权限
+    var Bform=document.getElementById("BformId");
+    function BForm1(){
+        var Bconfirm=confirm("确认修改？");
+        if(Bconfirm==true){
+            Bform.submit();
+        }
+    }
+
+</script>
 </html>

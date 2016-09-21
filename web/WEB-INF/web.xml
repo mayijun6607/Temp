@@ -72,6 +72,14 @@
         <url-pattern>/DeleteTieziServlet</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>ModifyAuthServlet</servlet-name>
+        <servlet-class>main.userConfig.modifyAuth.ModifyAuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ModifyAuthServlet</servlet-name>
+        <url-pattern>/ModifyAuthServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>DeleteReplyServlet</servlet-name>
         <servlet-class>main.Tiezi.deleteReply.DeleteReplyServlet</servlet-class>
     </servlet>

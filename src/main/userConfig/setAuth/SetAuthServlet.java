@@ -31,7 +31,7 @@ public class SetAuthServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doPost(request,response);
     }
 
     @Override
@@ -51,6 +51,7 @@ public class SetAuthServlet extends HttpServlet{
 
         String queryName=request.getParameter("queryName");
         String isBlur=request.getParameter("isBlur");
+        //System.out.println(queryName+"..."+isBlur+"..."+userAuth);
         //System.out.println(isBlur);
 
         try(Connection connection=comboPooledDataSource.getConnection()){

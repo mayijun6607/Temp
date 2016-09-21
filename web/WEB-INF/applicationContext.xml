@@ -73,9 +73,14 @@
   <bean id="deleteReplyService" class="main.Tiezi.deleteReply.DeleteReplyService" p:deleteReplyDAO-ref="deleteReplyDAO"/>
   <bean id="deleteReplyServlet" class="main.Tiezi.deleteReply.DeleteReplyServlet" p:comboPooledDataSource-ref="dataSource"
         p:deleteReplyService-ref="deleteReplyService"/>
-  <!--设置权限-->
+  <!--权限查询-->
   <bean id="setAuthDAO" class="main.userConfig.setAuth.SetAuthDAO"/>
   <bean id="setAuthService" class="main.userConfig.setAuth.SetAuthService" p:setAuthDAO-ref="setAuthDAO"/>
   <bean id="setAuthServlet" class="main.userConfig.setAuth.SetAuthServlet" p:comboPooledDataSource-ref="dataSource"
         p:setAuthService-ref="setAuthService" />
+  <!--修改权限-->
+  <bean id="modifyAuthDAO" class="main.userConfig.modifyAuth.ModifyAuthDAO"/>
+  <bean id="modifyAuthService" class="main.userConfig.modifyAuth.ModifyAuthService" p:modifyAuthDAO-ref="modifyAuthDAO"/>
+  <bean id="modifyAuthServlet" class="main.userConfig.modifyAuth.ModifyAuthServlet" p:comboPooledDataSource-ref="dataSource"
+        p:modifyAuthService-ref="modifyAuthService"/>
 </beans>

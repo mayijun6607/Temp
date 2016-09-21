@@ -116,7 +116,7 @@
     %>
 
     <%--帖子标题预览 一页20条 做成表格，标题 、发帖人、发帖时间 --%>
-    <div style="border:2px dashed black;width:70%;position:relative;bottom:10%;left:10%;">
+    <div style="border:2px dashed black;width:80%;position:relative;bottom:10%;left:10%;">
 
         <table style="border-collapse:   separate;   border-spacing:   25px;width: 100%; ">
             <%
@@ -131,17 +131,17 @@
                 <td align="right"><%
                     if(authId[k]==4){
                 %>
-                    <font color="#ea3e4e" size="2">&gt;站长&lt;</font>&nbsp;
+                    <font color="#ea3e4e" size="2">&gt;站长&lt;</font>
                 <%
                     }
                     else if(authId[k]==3){
                 %>
-                    <font color="#ea3e4e" size="2">&gt;管理员&lt;</font>&nbsp;
+                    <font color="#ea3e4e" size="2">&gt;管理员&lt;</font>
                 <%
                     }
                     else if(authId[k]==2){
                 %>
-                    <font color="#ea3e4e" size="2">&gt;斑竹&lt;</font>&nbsp;
+                    <font color="#ea3e4e" size="2">&gt;斑竹&lt;</font>
                 <%
                     }
                     out.print(username[k]);
@@ -149,7 +149,7 @@
                 <td><%=time[k].substring(0,16)%></td>
                 <%
                     if(username[k].equals((String)session.getAttribute("username"))||userAuth>1){
-                        if(((String)session.getAttribute("username")).length()<7){
+                        if(((String)session.getAttribute("username")).length()<7&&userAuth>=authId[k]){
                 %>
                 <td>
                     <form id="deleteId" action="/DeleteTieziServlet" method="post">
