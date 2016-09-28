@@ -39,6 +39,14 @@
             if((String)request.getAttribute("loginFilterWarn")!=null){
                 loginFilterWarn=(String)request.getAttribute("loginFilterWarn");
             }
+            //获取用户名Cookie
+            Cookie[] cookies=request.getCookies();
+            String cookieUsername="";
+            for(Cookie cookie:cookies){
+                if("username".equals(cookie.getName())){
+                    cookieUsername=cookie.getValue();
+                }
+            }
         %>
 
        <%-- 各自留了一个<td>写错误提示!验证码多一个用来放图片！--%>
@@ -47,7 +55,14 @@
                 <table style="border-collapse:   separate;   border-spacing:   25px; ">
                     <tr>
                         <td align="right">用户名:</td>
-                        <td><input type="text"  size="15" name="username" placeholder="请输入用户名" value="<%=usernameOk%>"/></td>
+                        <td><input type="text"  size="15" name="username" placeholder="请输入用户名" value="<%
+                            if(usernameOk!=""){
+                                out.print(usernameOk);
+                            }
+                            else{
+                                out.print(cookieUsername);
+                            }
+                        %>"/></td>
                         <td ><font color="red" size="1" ><%=usernameWarn+loginFilterWarn%></font> </td>
                     </tr>
                     <tr>

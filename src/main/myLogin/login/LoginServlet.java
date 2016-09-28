@@ -6,10 +6,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import main.domain.user.User;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -66,6 +63,10 @@ public class LoginServlet extends HttpServlet {
                 int userAuth=loginService.getAuth(connection,username);
                 session.setAttribute("username",user.getUsername());
                 session.setAttribute("userAuth",userAuth);
+                //创建Cookie
+                Cookie cookie=new Cookie("username",user.getUsername());
+                cookie.setMaxAge(604800);
+                response.addCookie(cookie);
                 response.sendRedirect("/index.jsp");
             }
         }
