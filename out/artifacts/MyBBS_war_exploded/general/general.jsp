@@ -14,6 +14,7 @@
 <html>
 <head>
     <title>综合讨论</title>
+    <script type="text/javascript" src="/JQuery/jquery-3.1.0.js"></script>
 </head>
 <body>
     <%--顶部锚点--%>
@@ -193,7 +194,7 @@
     </div>
 
         <%--回到顶部--%>
-        <div style="border:2px solid black;position:absolute;bottom:2%;left:90%;">
+        <div id="returnTopDiv" style="border:2px solid black;position:fixed;bottom:2%;left:90%;">
             <a href="#top" >
                 <img id="returnTop" src="<c:url value="/general/image/return-top.jpg"/> " onmousemove="returnTop1()" onmouseout="returnTop2()"/>
             </a>
@@ -225,6 +226,8 @@
     //返回顶部变色
     var returnTop=document.getElementById("returnTop");
     function returnTop1(){
+        //测试
+        //alert($('#returnTopDiv').height());
         returnTop.src="${pageContext.request.contextPath}/general/image/focusReturn-top.jpg";
     }
     function returnTop2(){

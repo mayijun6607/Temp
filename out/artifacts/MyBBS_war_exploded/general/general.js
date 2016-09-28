@@ -74,3 +74,14 @@ function tieziContentWarn1(){
     }
 }
 
+//回到顶部的自动移动
+//var returnTopDiv=document.getElementById("returnTopDiv");
+/*$(function(){
+    $(window).scroll(function(){
+        $('#returnTopDiv').animate({
+
+        },300);
+    }).trigger('scroll');
+});*/
+
+

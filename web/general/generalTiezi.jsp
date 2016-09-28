@@ -258,7 +258,7 @@
             </form>
         </div>
            <%--回到顶部--%>
-           <div style="border:2px solid black;position:absolute;bottom:2%;left:90%;">
+           <div style="border:2px solid black;position:fixed;bottom:2%;left:90%;">
                <a href="#top" >
                    <img id="returnTop" src="<c:url value="/general/image/return-top.jpg"/> " onmousemove="returnTop1()" onmouseout="returnTop2()"/>
                </a>
