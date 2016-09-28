@@ -46,7 +46,14 @@
                 if("username".equals(cookie.getName())){
                     cookieUsername=cookie.getValue();
                 }
+
             }
+            //输入错误过多
+            String countWarn="";
+            if((String)request.getAttribute("countWarn")!=null){
+                countWarn=(String)request.getAttribute("countWarn");
+            }
+
         %>
 
        <%-- 各自留了一个<td>写错误提示!验证码多一个用来放图片！--%>
@@ -63,7 +70,14 @@
                                 out.print(cookieUsername);
                             }
                         %>"/></td>
-                        <td ><font color="red" size="1" ><%=usernameWarn+loginFilterWarn%></font> </td>
+                        <td ><font color="red" size="1" ><%
+                            if(countWarn!=""){
+                                out.print(countWarn);
+                            }
+                            else{
+                                out.print(usernameWarn+loginFilterWarn);
+                            }
+                        %></font> </td>
                     </tr>
                     <tr>
                         <td align="right">密码:</td>
