@@ -14,6 +14,15 @@
 <!--新加的返回主页的按钮-->
 
 <span style="border:2px solid black;position:absolute;top:30%;left:3%;" onclick="back1()" onmousemove="backhomepage1()" onmouseout="backhomepage2()">
+   <%
+       //获取lastURL
+       String lastURL="/index.jsp";
+       if((String)session.getAttribute("lastURL")!=null) {
+           lastURL=(String) session.getAttribute("lastURL");
+       }
+
+   %>
+    <input type="text" hidden id="lastURL" value="<%=lastURL%>"/>
     <input type="image" id="backhomepage"  src="${pageContext.request.contextPath}/Game/New/backHomepage.jpg"/>
 </span>
 
@@ -1221,6 +1230,7 @@
     }
     //返回主页的方法
     var backhomepage=document.getElementById("backhomepage");
+    var lastURL=document.getElementById("lastURL").value;
     function backhomepage1(){
         backhomepage.src="${pageContext.request.contextPath}/Game/New/focusBackHomepage.jpg";
     }
@@ -1228,7 +1238,7 @@
         backhomepage.src="${pageContext.request.contextPath}/Game/New/backHomepage.jpg";
     }
     function back1(){
-        window.history.back();
+        window.location.href="${pageContext.request.contextPath}"+lastURL;
     }
 </script>
 </html>

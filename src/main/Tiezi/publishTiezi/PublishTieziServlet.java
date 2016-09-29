@@ -48,7 +48,15 @@ public class PublishTieziServlet extends HttpServlet {
 
         try(Connection connection=comboPooledDataSource.getConnection()){
             publishTieziService.publishTiezi(connection,tiezi);
-            response.sendRedirect("general/general.jsp");
+           /* //拿取lastURL
+            String lastURL=null;
+            if((String)session.getAttribute("lastURL")!=null) {
+                lastURL=(String) session.getAttribute("lastURL");
+            }
+            else{
+                lastURL="/index.jsp";
+            }*/
+            response.sendRedirect("/general/general.jsp");
         }
         catch (SQLException e){
             throw new RuntimeException("发表综合讨论区帖子Servlet出错!");

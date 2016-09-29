@@ -20,7 +20,15 @@ public class LoginIPServlet extends HttpServlet {
         String userIPLater = userIPTemp[0] + "." + userIPTemp[1] + "." + userIPTemp[2] + ".*";
         //System.out.println(userIPLater);
         session.setAttribute("username", userIPLater);
-        response.sendRedirect("index.jsp");
+        //拿取lastURL
+        String lastURL=null;
+        if((String)session.getAttribute("lastURL")!=null) {
+            lastURL=(String) session.getAttribute("lastURL");
+        }
+        else{
+            lastURL="/index.jsp";
+        }
+        response.sendRedirect(lastURL);
 
     }
 

@@ -20,7 +20,13 @@ public class LoginOutServlet extends HttpServlet {
         session.setAttribute("username",null);
         session.setAttribute("userAuth",0);
         //拿取lastURL
-        String lastURL=(String)session.getAttribute("lastURL");
+        String lastURL=null;
+        if((String)session.getAttribute("lastURL")!=null) {
+            lastURL=(String) session.getAttribute("lastURL");
+        }
+        else{
+            lastURL="/index.jsp";
+        }
         response.sendRedirect(lastURL);
         //System.out.println((String)session.getAttribute("username"));
     }

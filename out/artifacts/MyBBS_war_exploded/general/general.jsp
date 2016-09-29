@@ -65,11 +65,11 @@
     <%
         //获得用户权限等级
         int userAuth=0;
-        if(session.getAttribute("username")==null){
-            userAuth=0;
+        if(session.getAttribute("username")!=null){
+            userAuth = (Integer) session.getAttribute("userAuth");
         }
         else {
-            userAuth = (Integer) session.getAttribute("userAuth");
+            userAuth=0;
         }
         int[] tieziId=new int[10];
         String[] username=new String[10];

@@ -34,7 +34,14 @@ else {
 <div style="background-color:#99d9ea;border:2px solid black;width:97.6%;height:74%;position:absolute;top:24%;left:1%;">
     <h1>找不到帖子!</h1>
     <br/>
-    &nbsp;<a style="font-size: x-large" href="${pageContext.request.contextPath}<%=(String)session.getAttribute("lastURL")%>">返回</a>
+    &nbsp;<a style="font-size: x-large" href="${pageContext.request.contextPath}"<%
+        if((String)session.getAttribute("lastURL")!=null) {
+            out.print((String) session.getAttribute("lastURL"));
+        }
+        else{
+            out.print("/index.jsp");
+        }
+%>">返回</a>
 </div>
 
 </body>

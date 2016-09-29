@@ -113,7 +113,14 @@ public class LoginServlet extends HttpServlet {
             }
             else{
                 //拿取lastURL
-                String lastURL=(String)session.getAttribute("lastURL");
+                String lastURL=null;
+                if((String)session.getAttribute("lastURL")!=null) {
+                    lastURL=(String) session.getAttribute("lastURL");
+                }
+                else{
+                    lastURL="/index.jsp";
+                }
+
                 //创建Cookie
                 Cookie cookie=new Cookie("username",user.getUsername());
                 cookie.setMaxAge(604800);

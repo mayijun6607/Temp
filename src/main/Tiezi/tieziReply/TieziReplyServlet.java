@@ -68,7 +68,15 @@ public class TieziReplyServlet extends HttpServlet {
             }
         }
         else {
-            response.sendRedirect("general/generalError.jsp");
+            //拿取lastURL
+            String lastURL=null;
+            if((String)session.getAttribute("lastURL")!=null) {
+                lastURL=(String) session.getAttribute("lastURL");
+            }
+            else{
+                lastURL="/index.jsp";
+            }
+            response.sendRedirect(lastURL);
         }
 
 

@@ -26,7 +26,13 @@
                <%-- 格式验证防止出现NULL--%>
                 <%
                     //获取lastURL
-                    String lastURL=(String)session.getAttribute("lastURL");
+                    String lastURL=null;
+                    if((String)session.getAttribute("lastURL")!=null) {
+                        lastURL=(String) session.getAttribute("lastURL");
+                    }
+                    else{
+                        lastURL="/index.jsp";
+                    }
 
                     String warnInfo1="";
                     if((String)request.getAttribute("warnInfo1")!=null){
