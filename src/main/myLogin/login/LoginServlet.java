@@ -47,6 +47,9 @@ public class LoginServlet extends HttpServlet {
         user.setUsername(username);
         user.setPassword(password);
 
+        //错误时间 30秒
+        int errorTime=30;
+
         //错误次数Cookie的创建
         Cookie[] all=request.getCookies();
         int isExist=0;
@@ -57,7 +60,7 @@ public class LoginServlet extends HttpServlet {
         }
         if(isExist==0){
             Cookie errorCount=new Cookie("errorCount","0");
-            errorCount.setMaxAge(300);
+            errorCount.setMaxAge(errorTime);
             response.addCookie(errorCount);
         }
 
@@ -78,7 +81,7 @@ public class LoginServlet extends HttpServlet {
                         }
                         else{
                             Cookie errorCount1=new Cookie("errorCount",eCount+1+"");
-                            errorCount1.setMaxAge(300);
+                            errorCount1.setMaxAge(errorTime);
                             response.addCookie(errorCount1);
                         }
                     }
@@ -100,7 +103,7 @@ public class LoginServlet extends HttpServlet {
                         }
                         else{
                             Cookie errorCount1=new Cookie("errorCount",eCount+1+"");
-                            errorCount1.setMaxAge(300);
+                            errorCount1.setMaxAge(errorTime);
                             response.addCookie(errorCount1);
                         }
                     }
