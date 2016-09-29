@@ -36,6 +36,9 @@
         tieziTime=tempTime.substring(0,16);
         authIdTop=Integer.parseInt(tiezi[4]);
 
+        //设置本页面位置Session
+        session.setAttribute("lastURL","/GeneralKanTieServlet?tieziId="+tieziId+"&tieziTime="+tempTime);
+
     %>
     <%
         //其余楼层

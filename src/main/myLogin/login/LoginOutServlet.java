@@ -19,7 +19,9 @@ public class LoginOutServlet extends HttpServlet {
         HttpSession session=request.getSession();
         session.setAttribute("username",null);
         session.setAttribute("userAuth",0);
-        response.sendRedirect("/index.jsp");
+        //拿取lastURL
+        String lastURL=(String)session.getAttribute("lastURL");
+        response.sendRedirect(lastURL);
         //System.out.println((String)session.getAttribute("username"));
     }
 }

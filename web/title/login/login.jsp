@@ -20,6 +20,9 @@
 
         <%--错误信息，防止NULL--%>
         <%
+            //获取lastURL
+            String lastURL=(String)session.getAttribute("lastURL");
+
             String usernameWarn="";
             if((String)request.getAttribute("loginUsernameWarn")!=null){
                 usernameWarn=(String)request.getAttribute("loginUsernameWarn");
@@ -55,6 +58,8 @@
             }
 
         %>
+        <%--隐藏的放着lastURL的text--%>
+        <input type="text" id="lastURL" hidden value="<%=lastURL%>"/>
 
        <%-- 各自留了一个<td>写错误提示!验证码多一个用来放图片！--%>
         <div style="position: absolute;top:25%;left:10%;">
@@ -115,6 +120,7 @@
         </span>
     </div>
 </body>
+<script type="text/javascript" src="/JQuery/jquery-3.1.0.js"></script>
 <script type="text/javascript">
 
     function regist1(){
@@ -122,7 +128,7 @@
     }
 
     function return1(){
-        window.location.href="${pageContext.request.contextPath}/index.jsp";
+        window.location.href="${pageContext.request.contextPath}"+ $('#lastURL').val();
     }
 
 </script>

@@ -14,6 +14,9 @@
   <body>
   <%--登录后和登录前不同的TITLE.JSP--%>
   <%
+      //设置本页面位置Session
+      session.setAttribute("lastURL","/index.jsp");
+
     if(session.getAttribute("username")!=null){%>
   <jsp:include page="${pageContext.request.contextPath}/title/titleSuccess.jsp"/>
   <%

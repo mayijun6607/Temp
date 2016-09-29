@@ -94,26 +94,9 @@
         int pageSize=(Integer)request.getAttribute("pageSize");
         authId=(int[])request.getAttribute("authId");
 
-        /*String[] temp={"","","",""};*/
-      /*  Map<Integer, String[]> idMap = (Map<Integer,String[]>)request.getAttribute("idMap");
-        int i=0;
-            for (Map.Entry<Integer, String[]> entry : idMap.entrySet()) {
-               for(int j=0;j<4;j++){
-                   temp[j]=entry.getValue()[j];
-               }
-                if(i<10) {
-                    tieziId[i]=entry.getKey();
-                    username[i] = temp[0];
-                    title[i] = temp[1];
-                    content[i] = temp[2];
-                    realTime[i]=temp[3];
-                    time[i] = realTime[i].substring(0,16);
-                    i++;
-                }
-                else{
-                    break;
-                }
-            }*/
+        //设置本页面位置Session
+        int luc=(Integer)request.getAttribute("currentPage");
+        session.setAttribute("lastURL","/GeneralTieziServlet?currentPage="+luc);
     %>
 
     <%--帖子标题预览 一页20条 做成表格，标题 、发帖人、发帖时间 --%>

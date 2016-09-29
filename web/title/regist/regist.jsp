@@ -25,6 +25,9 @@
 
                <%-- 格式验证防止出现NULL--%>
                 <%
+                    //获取lastURL
+                    String lastURL=(String)session.getAttribute("lastURL");
+
                     String warnInfo1="";
                     if((String)request.getAttribute("warnInfo1")!=null){
                         warnInfo1=(String)request.getAttribute("warnInfo1");
@@ -48,6 +51,8 @@
                         warnInfo=(String)request.getAttribute("warnInfo");
                     }
                 %>
+                   <%--隐藏的放着lastURL的text--%>
+                   <input type="text" id="lastURL" hidden value="<%=lastURL%>"/>
 
                <%-- Session保存了格式正确的用户名--%>
                 <%
@@ -115,13 +120,14 @@
         </span>
     </div>
 </body>
+<script type="text/javascript" src="/JQuery/jquery-3.1.0.js"></script>
 <script type="application/javascript">
     function login1(){
         window.location.href="${pageContext.request.contextPath}/title/login/login.jsp";
     }
 
     function return1(){
-        window.location.href="${pageContext.request.contextPath}/index.jsp";
+        window.location.href="${pageContext.request.contextPath}"+$('#lastURL').val();
     }
     //换一张验证码
     var verifyCodeImg=document.getElementById("verifyCode");

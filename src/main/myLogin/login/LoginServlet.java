@@ -112,6 +112,8 @@ public class LoginServlet extends HttpServlet {
                 request.getRequestDispatcher("title/login/login.jsp").forward(request,response);
             }
             else{
+                //拿取lastURL
+                String lastURL=(String)session.getAttribute("lastURL");
                 //创建Cookie
                 Cookie cookie=new Cookie("username",user.getUsername());
                 cookie.setMaxAge(604800);
@@ -131,7 +133,7 @@ public class LoginServlet extends HttpServlet {
                             int userAuth=loginService.getAuth(connection,username);
                             session.setAttribute("username",user.getUsername());
                             session.setAttribute("userAuth",userAuth);
-                            response.sendRedirect("/index.jsp");
+                            response.sendRedirect(lastURL);
                         }
                     }
 
@@ -140,7 +142,7 @@ public class LoginServlet extends HttpServlet {
                     int userAuth=loginService.getAuth(connection,username);
                     session.setAttribute("username",user.getUsername());
                     session.setAttribute("userAuth",userAuth);
-                    response.sendRedirect("/index.jsp");
+                    response.sendRedirect(lastURL);
                 }
 
             }
