@@ -11,6 +11,7 @@
   <head>
     <title>MyBBS</title>
   </head>
+  <script type="text/javascript" src="/JQuery/jquery-3.1.0.js"></script>
   <body>
   <%--登录后和登录前不同的TITLE.JSP--%>
   <%
@@ -56,12 +57,30 @@
         <a href="<c:url value="/general/general.jsp"/> ">MyBBS|综合讨论</a>
       </span>
       <span style="position:absolute;top:20%;left:72%;">综合讨论，日常灌水</span>
+    </div>
 
-  </div>
-
-  <%--没想好，右上角板块--%>
+  <%--图片轮播，右上角板块--%>
   <div style="background-color:#99d9ea;border:2px solid black;height:34%;width:43%;position:absolute;top:24%;right:2%;">
+        <div id="imgDiv" style="position:relative;left:20%;top:5%;">
+            <img id="image1" height="80%" width="60%" src="/index/exImage/Kayle_Splash_6.jpg"/>
+          <%--  <img id="image2" height="80%" width="60%" hidden src="/index/exImage/Leona_Splash_7.jpg"/>
+            <img id="image3" height="80%" width="60%" hidden src="/index/exImage/Shyvana_Splash_5.jpg"/>
+            <img id="image4" height="80%" width="60%" hidden src="/index/exImage/Vladimir_Splash_0.jpg"/>--%>
+        </div>
+      <div style="position: absolute;left:40%;top:90%;">
+          <input id="imageB1" type="image" src="/index/exImage/point.jpg"/>&nbsp;
+          <input id="imageB2" type="image" src="/index/exImage/point-white.jpg"/>&nbsp;
+          <input id="imageB3" type="image" src="/index/exImage/point-white.jpg"/>&nbsp;
+          <input id="imageB4" type="image" src="/index/exImage/point-white.jpg"/>
+      </div>
 
+     <%-- <div style="position:absolute;top:20%;">
+          <input id="imageL" type="image" src="/index/exImage/L-white.jpg"/>
+      </div>
+      *左右箭头*
+      <div style="position:absolute;">
+          <input id="imageR" type="image" src=""/>
+      </div>--%>
   </div>
 
   <%--没想好，右下角板块--%>
@@ -69,4 +88,115 @@
 
   </div>
   </body>
+<script type="text/javascript">
+    $(function(){
+        //按钮变色
+        $('#imageB1').mouseover(function(){
+            $(this).attr("src","/index/exImage/point.jpg");
+        });
+        $('#imageB1').mouseout(function(){
+            if(($('#image1').is('img[src="/index/exImage/Kayle_Splash_6.jpg"]'))) {
+                $('#imageB2').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB3').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB4').attr("src","/index/exImage/point-white.jpg");
+            }
+            else{
+                $(this).attr("src", "/index/exImage/point-white.jpg");
+            }
+            //$(this).attr("src", "/index/exImage/point-white.jpg");
+        });
+        $('#imageB2').mouseover(function(){
+            $(this).attr("src","/index/exImage/point.jpg");
+        });
+        $('#imageB2').mouseout(function(){
+            if(($('#image1').is('img[src="/index/exImage/Leona_Splash_7.jpg"]'))) {
+                $('#imageB1').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB3').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB4').attr("src","/index/exImage/point-white.jpg");
+            }
+            else{
+                $(this).attr("src", "/index/exImage/point-white.jpg");
+            }
+        });
+        $('#imageB3').mouseover(function(){
+            $(this).attr("src","/index/exImage/point.jpg");
+        });
+        $('#imageB3').mouseout(function(){
+            if(($('#image1').is('img[src="/index/exImage/Shyvana_Splash_5.jpg"]'))) {
+                $('#imageB1').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB2').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB4').attr("src","/index/exImage/point-white.jpg");
+            }
+            else{
+                $(this).attr("src", "/index/exImage/point-white.jpg");
+            }
+        });
+        $('#imageB4').mouseover(function(){
+            $(this).attr("src","/index/exImage/point.jpg");
+        });
+        $('#imageB4').mouseout(function(){
+            if(($('#image1').is('img[src="/index/exImage/Vladimir_Splash_0.jpg"]'))) {
+                $('#imageB1').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB3').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB2').attr("src","/index/exImage/point-white.jpg");
+            }
+            else{
+                $(this).attr("src", "/index/exImage/point-white.jpg");
+            }
+        });
+
+
+        //按钮的功能
+        $('#imageB1').click(function(){
+            $('#image1').fadeOut(400,function (){
+                $(this).attr("src","/index/exImage/Kayle_Splash_6.jpg").fadeIn(400);
+                $('#imageB1').attr("src","/index/exImage/point.jpg");
+                $('#imageB2').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB3').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB4').attr("src","/index/exImage/point-white.jpg");
+            });
+        });
+        $('#imageB2').click(function (){
+            $('#image1').fadeOut(400,function(){
+                $(this).attr("src","/index/exImage/Leona_Splash_7.jpg").fadeIn(400);
+                $('#imageB2').attr("src","/index/exImage/point.jpg");
+                $('#imageB1').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB3').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB4').attr("src","/index/exImage/point-white.jpg");
+            });
+        });
+        $('#imageB3').click(function (){
+            $('#image1').fadeOut(400,function(){
+                $(this).attr("src","/index/exImage/Shyvana_Splash_5.jpg").fadeIn(400);
+                $('#imageB3').attr("src","/index/exImage/point.jpg");
+                $('#imageB2').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB1').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB4').attr("src","/index/exImage/point-white.jpg");
+            });
+        });
+        $('#imageB4').click(function (){
+            $('#image1').fadeOut(400,function(){
+                $(this).attr("src","/index/exImage/Vladimir_Splash_0.jpg").fadeIn(400);
+                $('#imageB4').attr("src","/index/exImage/point.jpg");
+                $('#imageB2').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB3').attr("src","/index/exImage/point-white.jpg");
+                $('#imageB1').attr("src","/index/exImage/point-white.jpg");
+            });
+        });
+
+
+    });
+    //图片轮播
+    function myP(){
+        window.setTimeout("$('#imageB2').click()",3000);
+        window.setTimeout("$('#imageB3').click()",6000);
+        window.setTimeout("$('#imageB4').click()",9000);
+        window.setTimeout("$('#imageB1').click()",12000);
+    }
+    /*  $('#image1').on('myPicture',function(){
+     myP();
+     }).trigger('myPicture');*/
+    window.setTimeout("myP()",0);
+    window.setInterval("myP()",12000);
+</script>
 </html>

@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d01aa37a-fa5b-43af-9ae4-9891d588feb6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Tiezi/publishTiezi/PublishTieziServlet.java" afterPath="$PROJECT_DIR$/src/main/Tiezi/publishTiezi/PublishTieziServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Tiezi/tieziReply/TieziReplyServlet.java" afterPath="$PROJECT_DIR$/src/main/Tiezi/tieziReply/TieziReplyServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/myLogin/login/LoginIPServlet.java" afterPath="$PROJECT_DIR$/src/main/myLogin/login/LoginIPServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/myLogin/login/LoginOutServlet.java" afterPath="$PROJECT_DIR$/src/main/myLogin/login/LoginOutServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/myLogin/login/LoginServlet.java" afterPath="$PROJECT_DIR$/src/main/myLogin/login/LoginServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Game/Major.jsp" afterPath="$PROJECT_DIR$/web/Game/Major.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/general/deleteOk.jsp" afterPath="$PROJECT_DIR$/web/general/deleteOk.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/general/general.jsp" afterPath="$PROJECT_DIR$/web/general/general.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/general/generalError.jsp" afterPath="$PROJECT_DIR$/web/general/generalError.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/title/login/login.jsp" afterPath="$PROJECT_DIR$/web/title/login/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/title/regist/regist.jsp" afterPath="$PROJECT_DIR$/web/title/regist/regist.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/index/exImage/Kayle_Splash_6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/index/exImage/Leona_Splash_7.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/index/exImage/Shyvana_Splash_5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/index/exImage/Vladimir_Splash_0.jpg" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/MyBBS_war_exploded/test.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/test.jsp" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MyBBS_war_exploded/index.jsp" afterPath="$PROJECT_DIR$/out/artifacts/MyBBS_war_exploded/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
     </list>
     <ignored path="MyBBS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -778,41 +776,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/title/login/login.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.925926">
-              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="30" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Major.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/Game/Major.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6523605">
-              <caret line="1240" column="73" selection-start-line="1240" selection-start-column="73" selection-end-line="1240" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="general.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/general/general.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.0">
-              <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.0">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state vertical-scroll-proportion="1.0412844">
+              <caret line="199" column="33" selection-start-line="199" selection-start-column="33" selection-end-line="199" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -880,7 +848,6 @@
         <option value="$PROJECT_DIR$/web/test.jsp" />
         <option value="$PROJECT_DIR$/web/general/general.js" />
         <option value="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/web/general/generalTiezi.jsp" />
         <option value="$PROJECT_DIR$/web/userConfig/userConfig.jsp" />
         <option value="$PROJECT_DIR$/src/main/myLogin/login/LoginOutServlet.java" />
@@ -894,6 +861,7 @@
         <option value="$PROJECT_DIR$/src/main/Tiezi/publishTiezi/PublishTieziServlet.java" />
         <option value="$PROJECT_DIR$/web/general/general.jsp" />
         <option value="$PROJECT_DIR$/web/Game/Major.jsp" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
       </list>
     </option>
   </component>
@@ -948,7 +916,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1017,7 +985,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="title" />
+              <option name="myItemId" value="index" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1035,29 +1003,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="title" />
+              <option name="myItemId" value="index" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="login" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyBBS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyBBS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="exImage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1077,7 +1027,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1091,19 +1041,19 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\ZZIntelliJ\MyBBS\web\index\exImage" />
+      <recent name="C:\ZZIntelliJ\MyBBS\web\JQuery" />
+      <recent name="C:\ZZIntelliJ\MyBBS\web\general\image" />
+      <recent name="C:\ZZIntelliJ\MyBBS\web\index\image" />
+      <recent name="C:\ZZIntelliJ\MyBBS\web\title\image" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\ZZIntelliJ\MyBBS\web\title" />
       <recent name="C:\ZZIntelliJ\MyBBS\web\WEB-INF\title" />
       <recent name="C:\ZZIntelliJ\MyBBS\web\WEB-INF\lib" />
       <recent name="C:\ZZIntelliJ\MyBBS\web\title\image" />
       <recent name="C:\ZZIntelliJ\MyBBS\web" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\ZZIntelliJ\MyBBS\web\JQuery" />
-      <recent name="C:\ZZIntelliJ\MyBBS\web\general\image" />
-      <recent name="C:\ZZIntelliJ\MyBBS\web\index\image" />
-      <recent name="C:\ZZIntelliJ\MyBBS\web\title\image" />
-      <recent name="C:\ZZIntelliJ\MyBBS\web\Game\New" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 7.0.70">
@@ -1745,7 +1695,8 @@
       <workItem from="1474517502107" duration="213000" />
       <workItem from="1475036315693" duration="2352000" />
       <workItem from="1475047529007" duration="5491000" />
-      <workItem from="1475119592396" duration="6069000" />
+      <workItem from="1475119592396" duration="6173000" />
+      <workItem from="1475206671797" duration="8498000" />
     </task>
     <task id="LOCAL-00001" summary="new change">
       <created>1473657047248</created>
@@ -1757,7 +1708,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210685000" />
+    <option name="totallyTimeSpent" value="219287000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1768,17 +1719,18 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285528" sideWeight="0.525" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31942633" sideWeight="0.5275" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31942633" sideWeight="0.475" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31942633" sideWeight="0.4725" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19" sideWeight="0.4601227" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.155" sideWeight="0.5398773" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1789,7 +1741,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1978,7 +1929,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36960986">
           <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2017,14 +1967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/test.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6909871">
-          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/general/general.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2052,7 +1994,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="53" column="10" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2068,7 +2009,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4390244">
           <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2076,7 +2016,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5121951">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2092,7 +2031,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2116,7 +2054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.62068963">
           <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2124,15 +2061,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.64300203">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2140,7 +2068,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4016227">
           <caret line="115" column="34" selection-start-line="115" selection-start-column="34" selection-end-line="115" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2180,7 +2107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="28" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2188,7 +2114,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6572008">
           <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2196,7 +2121,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5983773">
           <caret line="58" column="55" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2204,7 +2128,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7809331">
           <caret line="78" column="41" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2216,18 +2139,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/Game/Major.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6523605">
+          <caret line="1240" column="73" selection-start-line="1240" selection-start-column="73" selection-end-line="1240" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/title/login/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.925926">
+        <state vertical-scroll-proportion="0.2274678">
           <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/Game/Major.jsp">
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6523605">
-          <caret line="1240" column="73" selection-start-line="1240" selection-start-column="73" selection-end-line="1240" selection-end-column="73" />
+        <state vertical-scroll-proportion="1.0412844">
+          <caret line="199" column="33" selection-start-line="199" selection-start-column="33" selection-end-line="199" selection-end-column="33" />
           <folding />
         </state>
       </provider>
